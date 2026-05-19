@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Uneven Landscape of Blood Donations and Organ Pledges in Malaysia</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vega -->
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- ================================================= -->
+    <!-- MAIN TITLE -->
+    <!-- ================================================= -->
+
+    <h1>The Uneven Landscape of Blood Donations and Organ Pledges in Malaysia</h1>
+
+    <p class="subtitle">
+      This visualisation explores how blood donation and organ pledge participation differ
+      across Malaysian states between 2010 and 2025. Through maps, temporal trends,
+      and comparative visualisations, the story reveals where healthcare participation
+      is concentrated, how participation changes over time, and why willingness to pledge
+      does not always translate into actual donations.
+    </p>
+
+    <!-- ================================================= -->
+    <!-- SECTION 1 -->
+    <!-- ================================================= -->
+
+    <section class="section">
+
+      <h2>Participation is Concentrated in Urban and Developed States</h2>
+
+      <p class="section-description">
+        Blood donation and organ pledge activity is heavily concentrated in highly urbanised states
+        such as Selangor and Kuala Lumpur, while several eastern and northern states contribute
+        substantially less.
+      </p>
+
+      <div class="chart-row">
+
+        <div class="chart">
+          <h3>Urban States Lead in Blood Donation Participation</h3>
+          <div id="mapChart"></div>
+        </div>
+
+        <div class="chart">
+          <h3>Organ Pledges Highest in Developed States</h3>
+          <div id="barChart"></div>
+        </div>
+
+      </div>
+
+      <div class="chart" style="margin-top: 15px;">
+        <h3>Changes in State Rankings for Donations and Pledges (2020–2025)</h3>
+        <div id="bumpChart"></div>
+      </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- SECTION 2 -->
+    <!-- ================================================= -->
+
+    <section class="section">
+
+      <h2>Participation Trends Over Time</h2>
+
+      <p class="section-description">
+        Between 2010 and 2025, participation trends shifted unevenly across states.
+        Some states experienced rapid growth in organ pledges while others saw slower
+        or fluctuating donation patterns.
+      </p>
+
+      <div class="chart-row">
+
+        <div class="chart">
+          <h3>Blood Supply Composition Over the Years</h3>
+          <div id="areaChart"></div>
+        </div>
+
+        <div class="chart">
+          <h3>Organ Pledges Grow Faster than Actual Donations</h3>
+          <div id="dualLineChart"></div>
+        </div>
+
+      </div>
+
+      <div class="chart" style="margin-top: 15px;">
+        <h3>Distinct State-Level Donation Trends</h3>
+        <div id="smallMultiples"></div>
+      </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- SECTION 3 -->
+    <!-- ================================================= -->
+
+    <section class="section">
+
+      <h2>Gaps Between Pledge Intent and Actual Donations</h2>
+
+      <p class="section-description">
+        Although organ pledges reflect public willingness to participate,
+        actual blood donations remain lower in many states, highlighting
+        a gap between intention and action.
+      </p>
+
+      <div class="chart-row">
+
+        <div class="chart">
+          <h3>States Showing the Largest Pledge vs Donation Gaps</h3>
+          <div id="dotChart"></div>
+        </div>
+
+        <div class="chart">
+          <h3>State-Level Share of Donations and Pledges</h3>
+          <div id="butterflyChart"></div>
+        </div>
+
+      </div>
+
+      <div class="chart" style="margin-top: 15px;">
+        <h3>Total Donations and Pledges Heatmap Across States</h3>
+        <div id="heatmapWithMargins"></div>
+      </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- SECTION 4 -->
+    <!-- ================================================= -->
+
+    <section class="section">
+
+      <h2>Regional Inequalities in Healthcare Participation</h2>
+
+      <p class="section-description">
+        Distribution patterns reveal persistent disparities across Malaysia,
+        suggesting unequal access, awareness, and engagement between urban and
+        less-developed regions.
+      </p>
+
+      <div class="chart">
+
+        <h3>Variation in Blood Donation Levels Across States</h3>
+
+        <div id="boxPlot"></div>
+
+      </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- FOOTER / METADATA -->
+    <!-- ================================================= -->
+
+    <footer class="footer">
+
+      <p>
+        <strong>Created & Published By:</strong> Sanuli Perera |
+        Last Updated: May 2026
+      </p>
+
+      <p>
+        <strong>Data Sources:</strong>
+        <span class="highlight-source">Data.gov.my</span>,
+        <span class="highlight-source">Ministry of Health Malaysia - Data.moh.gov.my</span>
+      </p>
+
+
+    </footer>
+
+  </div>
+
+  <!-- ================================================= -->
+  <!-- SCRIPTS -->
+  <!-- ================================================= -->
+
+  <script src="js/bar.js"></script>
+  <script src="js/area.js"></script>
+  <script src="js/smallMultiples.js"></script>
+  <script src="js/line.js"></script>
+  <script src="js/dot.js"></script>
+  <script src="js/butterfly.js"></script>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <script src="js/map.js"></script>
+  <script src="js/boxplot.js"></script>
+  <script src="js/bump.js"></script>
+  <script src="js/heatmapWithMargins.js"></script>
+
+</body>
+
+</html>

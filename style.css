@@ -8,9 +8,9 @@ body {
   font-size: 15px;
 }
 
-/* ===== CONTAINER (slightly narrower for readability) ===== */
+/* ===== CONTAINER ===== */
 .container {
-  max-width: 1000px;  /* reduced from 1100px */
+  max-width: 1000px;  /* slightly narrower for readability */
   margin: 0 auto;
   padding: 20px;
 }
@@ -63,6 +63,7 @@ h3 {
   gap: 20px;
   margin-bottom: 30px;
   align-items: stretch;
+  justify-content: space-between; /* spreads charts to avoid edge clipping */
 }
 
 /* ===== CHART CARD ===== */
@@ -86,7 +87,9 @@ h3 {
 .chart > div {
   width: 100%;
   min-width: 300px;
-  height: 500px;  /* default height for charts */
+  height: 500px;              /* default height */
+  padding-right: 20px;         /* extra space for right-end labels */
+  box-sizing: border-box;      /* ensures padding doesn’t overflow */
 }
 
 /* Specific fix for bump, small multiples, heatmap */
@@ -95,6 +98,8 @@ h3 {
 #heatmapWithMargins {
   width: 100%;
   height: 500px;
+  padding-right: 25px;         /* ensures text on right edge shows */
+  box-sizing: border-box;
 }
 
 /* ===== CHART AXIS AND ANNOTATION STYLE ===== */
@@ -137,23 +142,15 @@ h3 {
     flex-direction: column;
     gap: 16px;
   }
-  h1 {
-    font-size: 18px;
-  }
-  h2 {
-    font-size: 16px;
-  }
-  h3 {
-    font-size: 16px;
-  }
-  .section-description, .subtitle {
-    font-size: 14px;
-  }
-  /* Chart height adjustment for mobile */
+  h1 { font-size: 18px; }
+  h2 { font-size: 16px; }
+  h3 { font-size: 16px; }
+  .section-description, .subtitle { font-size: 14px; }
   .chart > div,
   #bumpChart,
   #smallMultiples,
   #heatmapWithMargins {
-    height: 400px;
+    height: 400px;          /* slightly smaller on mobile */
+    padding-right: 15px;    /* preserve right padding */
   }
 }

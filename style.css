@@ -5,26 +5,26 @@ body {
   color: #222;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  font-size: 15px; /* body text falls in 14-16px range */
+  font-size: 15px;
 }
 
-/* ===== CONTAINER ===== */
+/* ===== CONTAINER (slightly narrower for readability) ===== */
 .container {
-  max-width: 1100px;
+  max-width: 1000px;  /* reduced from 1100px */
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
 }
 
 /* ===== MAIN TITLE ===== */
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 28px; /* max of 16-20px range */
+  font-size: 28px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .subtitle {
-  font-size: 15px; /* within 14-16px range */
+  font-size: 15px;
   line-height: 1.6;
   text-align: justify;
   max-width: 900px;
@@ -35,14 +35,14 @@ h1 {
 
 /* ===== SECTION ===== */
 h2 {
-  font-size: 20px; /* slightly smaller than h1 but still in range */
+  font-size: 20px;
   margin-bottom: 15px;
   border-left: 4px solid #4C78A8;
   padding-left: 10px;
 }
 
 .section-description {
-  font-size: 15px; /* body text in range */
+  font-size: 15px;
   line-height: 1.6;
   margin-bottom: 15px;
   color: #444;
@@ -50,7 +50,7 @@ h2 {
 
 /* ===== CHART TITLES ===== */
 h3 {
-  font-size: 16px; /* min of titles range */
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 10px;
   min-height: 40px;
@@ -85,30 +85,16 @@ h3 {
 /* ===== CHART CONTAINERS ===== */
 .chart > div {
   width: 100%;
-  min-width: 0;
-  flex: 1;
+  min-width: 300px;
+  height: 500px;  /* default height for charts */
 }
 
-/* ===== SECTION 3 GRID FIX ===== */
-.section:nth-of-type(3) .chart-row {
-  display: flex;
-  gap: 20px;
-  align-items: stretch;
-}
-
-.section:nth-of-type(3) .chart {
-  height: 420px;
-}
-
-.section:nth-of-type(3) .chart > div {
-  height: 100%;
-  flex: 1;
-}
-
-/* ===== FULL WIDTH CHARTS ===== */
-.full-width-chart {
-  margin-top: 20px;
+/* Specific fix for bump, small multiples, heatmap */
+#bumpChart,
+#smallMultiples,
+#heatmapWithMargins {
   width: 100%;
+  height: 500px;
 }
 
 /* ===== CHART AXIS AND ANNOTATION STYLE ===== */
@@ -116,7 +102,7 @@ h3 {
 .vega-axis-title,
 .vega-text {
   font-family: 'Inter', sans-serif;
-  font-size: 13px; /* axis labels/data points: 12-14px */
+  font-size: 13px;
   font-weight: 400;
   fill: #444;
 }
@@ -128,17 +114,17 @@ h3 {
   stroke-width: 1;
 }
 
-/* ===== LEGENDS AND TOOLTIP TEXT ===== */
+/* Legends and tooltip text */
 .vega-legend-label,
 .vega-tooltip {
   font-family: 'Inter', sans-serif;
-  font-size: 14px; /* legends/tooltips: 14-16px */
+  font-size: 14px;
   fill: #444;
 }
 
-/* ===== FOOTER ===== */
+/* Footer */
 .footer {
-  font-size: 14px; /* body text range */
+  font-size: 14px;
   color: #666;
   margin-top: 50px;
   line-height: 1.5;
@@ -152,15 +138,22 @@ h3 {
     gap: 16px;
   }
   h1 {
-    font-size: 18px; /* scale down for small screens */
+    font-size: 18px;
   }
   h2 {
     font-size: 16px;
   }
   h3 {
-    font-size: 16px; /* keep titles legible */
+    font-size: 16px;
   }
   .section-description, .subtitle {
     font-size: 14px;
+  }
+  /* Chart height adjustment for mobile */
+  .chart > div,
+  #bumpChart,
+  #smallMultiples,
+  #heatmapWithMargins {
+    height: 400px;
   }
 }
